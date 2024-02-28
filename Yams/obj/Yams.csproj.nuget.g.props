@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\V\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)emgucv\3.1.0.1\build\EmguCV.props" Condition="Exists('$(NuGetPackageRoot)emgucv\3.1.0.1\build\EmguCV.props')" />
+  </ImportGroup>
 </Project>
