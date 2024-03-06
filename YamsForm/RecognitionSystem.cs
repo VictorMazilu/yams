@@ -149,7 +149,7 @@ namespace YamsForm
 
                                 // Warp the image using the perspective transformation matrix
                                 Emgu.CV.Mat warpedImage = new Emgu.CV.Mat();
-                                Emgu.CV.CvInvoke.WarpPerspective(img, warpedImage, perspectiveMatrix, new Size(80, 80), Inter.Linear, Warp.Default, Emgu.CV.CvEnum.BorderType.Constant, new MCvScalar(0));
+                                Emgu.CV.CvInvoke.WarpPerspective(img, warpedImage, perspectiveMatrix, new Size(60, 60), Inter.Linear, Warp.Default, Emgu.CV.CvEnum.BorderType.Constant, new MCvScalar(0));
 
                                 Emgu.CV.CvInvoke.Imshow("[warped]", warpedImage);
                                 dices.Add(warpedImage.ToImage<Bgr, byte>());
@@ -377,6 +377,7 @@ namespace YamsForm
             Emgu.CV.Mat resultImage = img.Clone();
             List<Emgu.CV.Mat> dices = new List<Emgu.CV.Mat>();
             List<Point> positions = new List<Point>();
+            VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
 
             (dices, positions) = GetContours(ref output, ref resultImage);
             totalDices = dices.Count;

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YamsForm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0229545aa7ae937ae4624f50e6cb5d33641b1f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87c9cc7517ac712f2e3c62cbf18867b1fe25d956")]
 [assembly: System.Reflection.AssemblyProductAttribute("YamsForm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YamsForm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
