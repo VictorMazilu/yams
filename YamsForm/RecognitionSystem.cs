@@ -119,14 +119,14 @@ namespace YamsForm
             List<Point> positions = new List<Point>();
             using (VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint())
             {
-                Emgu.CV.CvInvoke.FindContours(img, contours, null, RetrType.External, ChainApproxMethod.ChainApproxNone);
+                Emgu.CV.CvInvoke.FindContours(img, contours, null, RetrType.List, ChainApproxMethod.ChainApproxNone);
 
                 using (Emgu.CV.Mat imageForCropping = drawImg.Clone())
                 {
                     for (int i = 0; i < contours.Size; i++)
                     {
                         double area = Emgu.CV.CvInvoke.ContourArea(contours[i]);
-                        if (area >= 1200)
+                        if (area >= 1200 && area <= 10000)
                         {
                             RotatedRect rect = Emgu.CV.CvInvoke.MinAreaRect(contours[i]);
                             PointF[] box = rect.GetVertices();
@@ -149,8 +149,9 @@ namespace YamsForm
 
                                 // Warp the image using the perspective transformation matrix
                                 Emgu.CV.Mat warpedImage = new Emgu.CV.Mat();
-                                Emgu.CV.CvInvoke.WarpPerspective(img, warpedImage, perspectiveMatrix, new Size(200, 200), Inter.Linear, Warp.Default, Emgu.CV.CvEnum.BorderType.Constant, new MCvScalar(0));
-                                                                
+                                Emgu.CV.CvInvoke.WarpPerspective(img, warpedImage, perspectiveMatrix, new Size(80, 80), Inter.Linear, Warp.Default, Emgu.CV.CvEnum.BorderType.Constant, new MCvScalar(0));
+
+                                Emgu.CV.CvInvoke.Imshow("[warped]", warpedImage);
                                 dices.Add(warpedImage.ToImage<Bgr, byte>());
                                 positions.Add(new Point((int)box[0].X, (int)box[0].Y));
 
@@ -178,10 +179,6 @@ namespace YamsForm
             for (int i = 0; i < dices.Count; i++)
             {
                 matDices.Add(dices[i].Mat);
-            }
-            for (int i = 0; i<matDices.Count; i++)
-            {
-                Emgu.CV.CvInvoke.Imshow("[matdices]", matDices[i]);
             }
             return (matDices, positions);
 
@@ -353,7 +350,7 @@ namespace YamsForm
             Emgu.CV.Mat dilated = new Emgu.CV.Mat();
             Emgu.CV.CvInvoke.Dilate(imgCanny, dilated, kernel, new Point(-1, -1), 2, Emgu.CV.CvEnum.BorderType.Default, new MCvScalar());
 
-            return dilated;
+            return imgThreshold;
         }
         public static (Emgu.CV.Mat, Emgu.CV.Mat) Recognize(string fileName, Emgu.CV.Mat img = null)
         {
@@ -377,9 +374,6 @@ namespace YamsForm
 
             Emgu.CV.Mat output = ProcessImage(img, 0.5, kernel, Emgu.CV.CvEnum.ThresholdType.Binary | Emgu.CV.CvEnum.ThresholdType.Otsu);
             
-            Emgu.CV.CvInvoke.Imshow("img", img);
-            Emgu.CV.CvInvoke.Imshow("output", output);
-
             Emgu.CV.Mat resultImage = img.Clone();
             List<Emgu.CV.Mat> dices = new List<Emgu.CV.Mat>();
             List<Point> positions = new List<Point>();
@@ -410,8 +404,6 @@ namespace YamsForm
                     Emgu.CV.Mat diceGamma = ApplyGamma(resizedDice, 0.6);
                     Emgu.CV.Mat diceMorph = new Emgu.CV.Mat();
                     Emgu.CV.CvInvoke.MorphologyEx(diceGamma, diceMorph, MorphOp.Close, kernel, new Point(-1,-1), 1, Emgu.CV.CvEnum.BorderType.Constant, new MCvScalar(0, 0, 0));
-
-                    Emgu.CV.CvInvoke.Imshow("[test]", diceMorph);
                     (Emgu.CV.Mat imgWithKeypoints, int number) = SimpleBlobDetection(ref diceMorph, minThreshold, maxThreshold, minArea, maxArea, minCircularity, minInertiaRatio);
 
                     if (number == 0)

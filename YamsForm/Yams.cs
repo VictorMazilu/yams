@@ -28,6 +28,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 using OpenTK.Graphics.OpenGL;
+using System.Text.RegularExpressions;
 
 namespace YamsForm
 {
@@ -191,14 +192,22 @@ namespace YamsForm
                 }
                 else
                 {
+                        using (VideoCapture capture = new VideoCapture(0))
+                        {
+                            // Grab a single frame
+                            Emgu.CV.Mat frame = new Emgu.CV.Mat();
+                            capture.Grab();
+
+                            // Retrieve the grabbed frame
+                            capture.Retrieve(frame);
+
+                            (Emgu.CV.Mat full, Emgu.CV.Mat dices) = RecognitionSystem.Recognize("videocapture", frame);
+                            //computed.Add(i, (full, dices));
+                            Emgu.CV.CvInvoke.Imshow("dice", full);
+                            if (dices.GetData() != null)
+                                Emgu.CV.CvInvoke.Imshow("pits", dices);
+                        }
                     
-                    (Emgu.CV.Mat full, Emgu.CV.Mat dices) = RecognitionSystem.Recognize(Path.GetFileName(files[i]));
-                    //Emgu.CV.CvInvoke.CvtColor(full,full, Emgu.CV.CvEnum.ColorConversion.Gray2Rgb);
-                    //Emgu.CV.CvInvoke.CvtColor(dices, dices, Emgu.CV.CvEnum.ColorConversion.Gray2Rgb);
-                    computed.Add(i, (full, dices));
-                    Emgu.CV.CvInvoke.Imshow("dice", full);
-                    if (dices.GetData() != null)
-                        Emgu.CV.CvInvoke.Imshow("pits", dices);
                 }
 
                 int key = Emgu.CV.CvInvoke.WaitKey(0) % 256;
