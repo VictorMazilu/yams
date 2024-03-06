@@ -1,0 +1,192 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\V\\Documents\\yams\\YamsForm\\YamsForm.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\V\\Documents\\yams\\YamsForm\\YamsForm.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\V\\Documents\\yams\\YamsForm\\YamsForm.csproj",
+        "projectName": "YamsForm",
+        "projectPath": "C:\\Users\\V\\Documents\\yams\\YamsForm\\YamsForm.csproj",
+        "packagesPath": "C:\\Users\\V\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\V\\Documents\\yams\\YamsForm\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\V\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\V\\Documents\\yams\\Yams\\Yams.csproj": {
+                "projectPath": "C:\\Users\\V\\Documents\\yams\\Yams\\Yams.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "IronPython": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
+            "IronPython.StdLib": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
+            "OpenCVSharp": {
+              "target": "Package",
+              "version": "[2.4.0.1, )"
+            },
+            "OpenCvSharp4.runtime.win": {
+              "target": "Package",
+              "version": "[4.9.0.20240103, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\V\\Documents\\yams\\Yams\\Yams.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\V\\Documents\\yams\\Yams\\Yams.csproj",
+        "projectName": "Yams",
+        "projectPath": "C:\\Users\\V\\Documents\\yams\\Yams\\Yams.csproj",
+        "packagesPath": "C:\\Users\\V\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\V\\Documents\\yams\\Yams\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\V\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Emgu.CV.runtime.windows": {
+              "target": "Package",
+              "version": "[4.8.1.5350, )"
+            },
+            "EmguCV": {
+              "target": "Package",
+              "version": "[3.1.0.1, )"
+            },
+            "IronPython": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
+            "IronPython.StdLib": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
+            "OpenCVSharp": {
+              "target": "Package",
+              "version": "[2.4.0.1, )"
+            },
+            "OpenCvSharp4.runtime.win": {
+              "target": "Package",
+              "version": "[4.9.0.20240103, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
