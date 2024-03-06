@@ -3,7 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\V\\Documents\\yams\\Yams\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{533EA3CF-E49C-499A-85F9-3AD2036B895E}|Yams.csproj|c:\\users\\v\\documents\\yams\\yams\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{018CACCC-D8CD-473E-8CD7-4079CF228F2F}|..\\YamsForm\\YamsForm.csproj|c:\\users\\v\\documents\\yams\\yamsform\\recognitionsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{018CACCC-D8CD-473E-8CD7-4079CF228F2F}|..\\YamsForm\\YamsForm.csproj|c:\\users\\v\\documents\\yams\\yamsform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{018CACCC-D8CD-473E-8CD7-4079CF228F2F}|..\\YamsForm\\YamsForm.csproj|c:\\users\\v\\documents\\yams\\yamsform\\yams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{018CACCC-D8CD-473E-8CD7-4079CF228F2F}|..\\YamsForm\\YamsForm.csproj|c:\\users\\v\\documents\\yams\\yamsform\\yams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{533EA3CF-E49C-499A-85F9-3AD2036B895E}|Yams.csproj|C:\\Users\\V\\Documents\\yams\\Yams\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{533EA3CF-E49C-499A-85F9-3AD2036B895E}|Yams.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,19 +26,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\V\\Documents\\yams\\YamsForm\\Program.cs",
+              "RelativeDocumentMoniker": "..\\YamsForm\\Program.cs",
+              "ToolTip": "C:\\Users\\V\\Documents\\yams\\YamsForm\\Program.cs",
+              "RelativeToolTip": "..\\YamsForm\\Program.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAiwBYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-03T16:37:54.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Yams.cs",
+              "DocumentMoniker": "C:\\Users\\V\\Documents\\yams\\YamsForm\\Yams.cs",
+              "RelativeDocumentMoniker": "..\\YamsForm\\Yams.cs",
+              "ToolTip": "C:\\Users\\V\\Documents\\yams\\YamsForm\\Yams.cs",
+              "RelativeToolTip": "..\\YamsForm\\Yams.cs",
+              "ViewState": "AQIAAMAAAAAAAAAAAAAiwMEAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-03T16:31:27.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Yams.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\V\\Documents\\yams\\YamsForm\\Yams.cs",
+              "RelativeDocumentMoniker": "..\\YamsForm\\Yams.cs",
+              "ToolTip": "C:\\Users\\V\\Documents\\yams\\YamsForm\\Yams.cs [Design]",
+              "RelativeToolTip": "..\\YamsForm\\Yams.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-03T16:31:25.956Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RecognitionSystem.cs",
+              "DocumentMoniker": "C:\\Users\\V\\Documents\\yams\\YamsForm\\RecognitionSystem.cs",
+              "RelativeDocumentMoniker": "..\\YamsForm\\RecognitionSystem.cs",
+              "ToolTip": "C:\\Users\\V\\Documents\\yams\\YamsForm\\RecognitionSystem.cs",
+              "RelativeToolTip": "..\\YamsForm\\RecognitionSystem.cs",
+              "ViewState": "AQIAAE4BAAAAAAAAAAAWwF8BAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-03T16:22:19.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\V\\Documents\\yams\\Yams\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\V\\Documents\\yams\\Yams\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAqAAAA",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAQwBAAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-28T06:55:23.49Z",
+              "WhenOpened": "2024-03-02T11:07:17.082Z",
               "EditorCaption": ""
             }
           ]
