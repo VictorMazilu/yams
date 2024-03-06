@@ -152,6 +152,7 @@ namespace YamsForm
 
             while (true)
             {
+                computed = new Dictionary<int, (Emgu.CV.Mat, Emgu.CV.Mat)>();
                 if (videoExtensions.Contains(Path.GetExtension(files[i]).ToLower()))
                 {
                     VideoCapture cap = new VideoCapture(files[i]);
@@ -168,8 +169,9 @@ namespace YamsForm
 
                         if (!frame.IsEmpty)
                         {
-                            (Emgu.CV.Mat full, Emgu.CV.Mat dices) = RecognitionSystem.Recognize(Path.GetFileName(files[i]), frame);
-                            Emgu.CV.CvInvoke.Imshow("dice", full);
+                            (Emgu.CV.Mat image, Emgu.CV.Mat resultImage, Emgu.CV.Mat dices) = RecognitionSystem.Recognize(Path.GetFileName(files[i]), frame);
+                            Emgu.CV.CvInvoke.Imshow("original", image);
+                            Emgu.CV.CvInvoke.Imshow("result", resultImage);
                             Emgu.CV.CvInvoke.Imshow("pits", dices);
 
                             if (Emgu.CV.CvInvoke.WaitKey(5) == 'q')
@@ -182,36 +184,27 @@ namespace YamsForm
                     cap.Dispose();
                     i++;
                 }
-
-                if (computed.ContainsKey(i))
+                using (VideoCapture capture = new VideoCapture(0))
                 {
-                    (Emgu.CV.Mat full, Emgu.CV.Mat dices) = computed[i];
-                    Emgu.CV.CvInvoke.Imshow("dice", full);
-                    if(dices.GetData() != null)
-                    Emgu.CV.CvInvoke.Imshow("pits", dices);
-                }
-                else
-                {
-                        using (VideoCapture capture = new VideoCapture(0))
-                        {
-                            // Grab a single frame
-                            Emgu.CV.Mat frame = new Emgu.CV.Mat();
-                            capture.Grab();
+                    // Grab a single frame
+                    Emgu.CV.Mat frame = new Emgu.CV.Mat();
+                    capture.Grab();
 
-                            // Retrieve the grabbed frame
-                            capture.Retrieve(frame);
+                    // Retrieve the grabbed frame
+                    capture.Retrieve(frame);
 
-                            (Emgu.CV.Mat full, Emgu.CV.Mat dices) = RecognitionSystem.Recognize("videocapture", frame);
-                            //computed.Add(i, (full, dices));
-                            Emgu.CV.CvInvoke.Imshow("dice", full);
-                            if (dices.GetData() != null)
-                                Emgu.CV.CvInvoke.Imshow("pits", dices);
-                        }
-                    
+                    (Emgu.CV.Mat image, Emgu.CV.Mat resultImage, Emgu.CV.Mat dices) = RecognitionSystem.Recognize("videocapture", frame);
+                    computed.Add(i, (image, dices));
+                    Emgu.CV.CvInvoke.Imshow("original", image);
+                    Emgu.CV.CvInvoke.Imshow("result", resultImage);
+                    if (dices.GetData() != null)
+                        Emgu.CV.CvInvoke.Imshow("pits", dices);
                 }
 
                 int key = Emgu.CV.CvInvoke.WaitKey(0) % 256;
 
+                if (key == 13) //Enter key
+                    continue;
                 if (key == 'q' || key == 'Q')
                     break;
                 else if (key == 'd' || key == 'D')

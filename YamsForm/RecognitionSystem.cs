@@ -126,7 +126,8 @@ namespace YamsForm
                     for (int i = 0; i < contours.Size; i++)
                     {
                         double area = Emgu.CV.CvInvoke.ContourArea(contours[i]);
-                        if (area >= 1200 && area <= 10000)
+                        Console.Out.WriteLine(area);
+                        if (area >= 3900 && area <= 6300)
                         {
                             RotatedRect rect = Emgu.CV.CvInvoke.MinAreaRect(contours[i]);
                             PointF[] box = rect.GetVertices();
@@ -149,9 +150,8 @@ namespace YamsForm
 
                                 // Warp the image using the perspective transformation matrix
                                 Emgu.CV.Mat warpedImage = new Emgu.CV.Mat();
-                                Emgu.CV.CvInvoke.WarpPerspective(img, warpedImage, perspectiveMatrix, new Size(60, 60), Inter.Linear, Warp.Default, Emgu.CV.CvEnum.BorderType.Constant, new MCvScalar(0));
+                                Emgu.CV.CvInvoke.WarpPerspective(img, warpedImage, perspectiveMatrix, new Size(80, 80), Inter.Linear, Warp.Default, Emgu.CV.CvEnum.BorderType.Constant, new MCvScalar(0));
 
-                                Emgu.CV.CvInvoke.Imshow("[warped]", warpedImage);
                                 dices.Add(warpedImage.ToImage<Bgr, byte>());
                                 positions.Add(new Point((int)box[0].X, (int)box[0].Y));
 
@@ -278,7 +278,7 @@ namespace YamsForm
             // Set up parameters for SimpleBlobDetector
             SimpleBlobDetectorParams blobParams = new SimpleBlobDetectorParams();
             blobParams.FilterByArea = true;
-            blobParams.MinArea = 100; // Minimum blob area
+            blobParams.MinArea = 1; // Minimum blob area
             blobParams.MaxArea = 2000; // Maximum blob area
             blobParams.FilterByCircularity = true;
             blobParams.MinCircularity = 0.7f; // Minimum circularity
@@ -350,9 +350,9 @@ namespace YamsForm
             Emgu.CV.Mat dilated = new Emgu.CV.Mat();
             Emgu.CV.CvInvoke.Dilate(imgCanny, dilated, kernel, new Point(-1, -1), 2, Emgu.CV.CvEnum.BorderType.Default, new MCvScalar());
 
-            return imgThreshold;
+            return dilated;
         }
-        public static (Emgu.CV.Mat, Emgu.CV.Mat) Recognize(string fileName, Emgu.CV.Mat img = null)
+        public static (Emgu.CV.Mat, Emgu.CV.Mat, Emgu.CV.Mat) Recognize(string fileName, Emgu.CV.Mat img = null)
         {
             // Blob detection parameters
             double minThreshold = 50;
@@ -426,18 +426,18 @@ namespace YamsForm
             if (totalPips > 0)
             {
                 Emgu.CV.CvInvoke.PutText(img, "Filename: " + fileName, new Point(30, 30), Emgu.CV.CvEnum.FontFace.HersheyComplex, 1, new MCvScalar(0, 0, 255), 2);
-                Emgu.CV.Mat full = JoinImages(0.6, new List<Emgu.CV.Mat> { img, resultImage }, true);
+                //Emgu.CV.Mat full = JoinImages(0.6, new List<Emgu.CV.Mat> { img, resultImage }, true);
 
                 if (filteredDices.Count > 10)
                 {
                     //filteredDices = MakeRows(filteredDices, 10);
                     Emgu.CV.Mat dicesImage = JoinImages(0.5, filteredDices, false);
-                    return (full, dicesImage);
+                    return (img, resultImage, dicesImage);
                 }
                 else
                 {
                     Emgu.CV.Mat dicesImage = JoinImages(0.5, filteredDices, true);
-                    return (full, dicesImage);
+                    return (img, resultImage, dicesImage);
                 }
             }
             else
@@ -448,7 +448,7 @@ namespace YamsForm
                 Emgu.CV.Mat blankDice = new Emgu.CV.Mat();
                 Emgu.CV.Mat full = JoinImages(0.6, new List<Emgu.CV.Mat> { img, copy }, true);
                 Emgu.CV.Mat dicesImage = JoinImages(0.5, new List<Emgu.CV.Mat> { blankDice, blankDice }, true);
-                return (full, dicesImage);
+                return (img, resultImage, dicesImage);
             }
         }
     }
